@@ -66,7 +66,6 @@ namespace TumblThree.Presentation.Controls
             double clickValue = ((RatingItem)sender).ItemValue;
             var oldValue = (double)GetValue(ValueProperty);
             if (oldValue == clickValue) clickValue = 0;
-            SetCurrentValue(ValueProperty, clickValue);
         }
 
         private void GenerateRatingItems()
