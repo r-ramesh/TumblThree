@@ -365,15 +365,11 @@ namespace WpfImageViewer
                     imagePath = _fileList.ElementAt(_currentFileIndex);
 
                     _mediaWidth = _mediaHeight = 0;
+                    Uri imageUri = new Uri(imagePath);
                     BitmapImage imageBitmap = null;
                     try
                     {
-                        imageBitmap = new BitmapImage();
-                        imageBitmap.BeginInit();
-                        imageBitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        imageBitmap.UriSource = new Uri(imagePath, UriKind.Absolute);
-                        imageBitmap.EndInit();
-                        imageBitmap.Freeze(); // Important for cross-thread access
+                        imageBitmap = new BitmapImage(imageUri);
                         _mediaWidth = imageBitmap.Width;
                         _mediaHeight = imageBitmap.Height;
                     }
