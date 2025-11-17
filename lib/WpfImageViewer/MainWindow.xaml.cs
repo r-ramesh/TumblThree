@@ -365,7 +365,7 @@ namespace WpfImageViewer
                     imagePath = _fileList.ElementAt(_currentFileIndex);
 
                     _mediaWidth = _mediaHeight = 0;
-                    Uri imageUri = new Uri(imagePath);
+                    Uri imageUri = new Uri(imagePath, UriKind.Absolute);
                     BitmapImage imageBitmap = null;
                     try
                     {
@@ -391,7 +391,7 @@ namespace WpfImageViewer
                     }
                     else
                     {
-                        _mediaViewModel.FilenameImage = imagePath;
+                        _mediaViewModel.FilenameImage = imageUri.AbsoluteUri;
                         _mediaViewModel.FilenameMedia = null;
                         _mediaViewModel.CurrentVisualState = VisualStates.ShowImage;
                     }

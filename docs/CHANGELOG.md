@@ -11,6 +11,12 @@ changing over time.
 
 <br>
 
+## Unreleased
+
+#### Fixed
+- Garbled/corrupted images when viewing downloaded files (fixed URI parsing issue)
+<br>
+
 ##  2.12.0 (2023-12-15)
 
 #### Added
