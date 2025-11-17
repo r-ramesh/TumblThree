@@ -847,6 +847,7 @@ namespace TumblThree.Applications.Controllers
                 }
 
                 QueueManager.RemoveItems(QueueManager.Items.Where(item => item.Blog.Equals(blog)));
+                _managerService.BlogFiles.Remove(blog);
             }
         }
 
