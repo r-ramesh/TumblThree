@@ -14,7 +14,7 @@ changing over time.
 ## Unreleased
 
 #### Fixed
-- Garbled/corrupted images when viewing downloaded files (fixed URI parsing issue)
+- Garbled images when viewing downloaded files (fixed file extension filtering when configuration is missing or empty)
 <br>
 
 ##  2.12.0 (2023-12-15)

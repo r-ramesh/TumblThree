@@ -275,7 +275,14 @@ namespace WpfImageViewer
 
             try
             {
-                _fileExtensions = _includedFileExtensions.Split(',');
+                if (string.IsNullOrWhiteSpace(_includedFileExtensions))
+                {
+                    _fileExtensions = new[] { ".bmp", ".gif", ".gifv", ".jpeg", ".jpg", ".png", ".tif", ".tiff" };
+                }
+                else
+                {
+                    _fileExtensions = _includedFileExtensions.Split(',');
+                }
             }
             catch
             {
@@ -365,7 +372,7 @@ namespace WpfImageViewer
                     imagePath = _fileList.ElementAt(_currentFileIndex);
 
                     _mediaWidth = _mediaHeight = 0;
-                    Uri imageUri = new Uri(imagePath, UriKind.Absolute);
+                    Uri imageUri = new Uri(imagePath);
                     BitmapImage imageBitmap = null;
                     try
                     {
@@ -391,7 +398,7 @@ namespace WpfImageViewer
                     }
                     else
                     {
-                        _mediaViewModel.FilenameImage = imageUri.AbsoluteUri;
+                        _mediaViewModel.FilenameImage = imagePath;
                         _mediaViewModel.FilenameMedia = null;
                         _mediaViewModel.CurrentVisualState = VisualStates.ShowImage;
                     }
