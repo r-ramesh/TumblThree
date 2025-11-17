@@ -11,6 +11,12 @@ changing over time.
 
 <br>
 
+## Unreleased
+
+#### Fixed
+- Corrupted images when clicking "view image" after downloading from a blog
+<br>
+
 ##  2.12.0 (2023-12-15)
 
 #### Added
