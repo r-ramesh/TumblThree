@@ -275,7 +275,14 @@ namespace WpfImageViewer
 
             try
             {
-                _fileExtensions = _includedFileExtensions.Split(',');
+                if (string.IsNullOrWhiteSpace(_includedFileExtensions))
+                {
+                    _fileExtensions = new[] { ".bmp", ".gif", ".gifv", ".jpeg", ".jpg", ".png", ".tif", ".tiff" };
+                }
+                else
+                {
+                    _fileExtensions = _includedFileExtensions.Split(',');
+                }
             }
             catch
             {
