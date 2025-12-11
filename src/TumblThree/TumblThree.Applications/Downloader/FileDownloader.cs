@@ -110,6 +110,7 @@ namespace TumblThree.Applications.Downloader
                                     //    totalBytesToReceive, (long)currentSpeed));
                                 }
                             }
+                            await fileStream.FlushAsync(ct);
                             isChunked = isChunked && response.Headers.ToString().Contains("Content-Range");
                         }
 
@@ -219,6 +220,7 @@ namespace TumblThree.Applications.Downloader
                 var buf = new byte[4096];
                 int bytesRead;
                 while ((bytesRead = await input.ReadAsync(buf, 0, buf.Length, ct)) > 0) await stream.WriteAsync(buf, 0, bytesRead, ct);
+                await stream.FlushAsync(ct);
             }
 
             return true;
